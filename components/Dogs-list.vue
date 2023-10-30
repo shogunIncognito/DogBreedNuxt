@@ -12,7 +12,7 @@ defineProps({
     <article
       v-for="(dog, index) in dogs"
       :key="index"
-      class="rounded p-1 max-w-[400px] break-inside-auto"
+      class="rounded p-1 grid place-content-center max-w-[400px] break-inside-auto"
     >
       <img        
         :src="dog"
