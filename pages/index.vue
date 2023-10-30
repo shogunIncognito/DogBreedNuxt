@@ -1,6 +1,6 @@
 <template>
-  <section class="w-full flex relative h-screen overflow-hidden bg-gray-100">
-    <aside class="p-10 flex flex-col bg-blue-600 h-full justify-center pb-32 text-white w-1/3">
+  <section class="w-full md:flex-row flex-col flex relative h-screen overflow-hidden bg-gray-100">
+    <aside class="p-10 flex flex-col bg-blue-600 h-full justify-center md:pb-32 text-white w-full lg:w-1/3">
       <h1 class="text-center text-4xl font-semibold p-3 rounded-lg bg-opacity-80">
         &#128054; DogBreedsFetch
       </h1>

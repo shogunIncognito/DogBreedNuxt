@@ -8,13 +8,13 @@ defineProps({
 </script>
 
 <template>
-  <section class="masonry sm:masonry-sm md:masonry-md mt-14">
+  <section class="masonry sm:masonry-sm md:masonry-md mt-14 md:mx-3 mx-1">
     <article
       v-for="(dog, index) in dogs"
       :key="index"
       class="rounded p-1 max-w-[400px] break-inside-auto"
     >
-      <img
+      <img        
         :src="dog"
         alt="dogbro"
         class="rounded shadow-2xl"

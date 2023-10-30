@@ -1,4 +1,17 @@
 <script setup>
+definePageMeta({
+  middleware: 'auth'
+})
+
+onBeforeMount(() => {
+  if (window.localStorage.getItem('session')) {
+    useState('session', () => ({ user: JSON.parse(window.localStorage.getItem('session')).user }))
+    navigateTo('/dashboard')
+    return
+  }
+  useState('session', () => ({ user: null }))
+})
+
 const testUser = {
   username: 'admin',
   password: 'admin',
@@ -11,8 +24,8 @@ const values = ref({
 
 const login = () => {
   if (values.value.username === testUser.username && values.value.password === testUser.password) {
-    alert('Logged in!')
     useState('session', () => ({ user: values.value.username }))
+    window.localStorage.setItem('session', JSON.stringify({ user: values.value.username }))
     navigateTo('/dashboard')
     return
   }
@@ -22,8 +35,8 @@ const login = () => {
 </script>
 
 <template>
-  <section class="flex h-screen w-full bg-gray-100">
-    <aside class="w-3/12 flex justify-center items-center">
+  <section class="flex flex-col lg:flex-row h-screen w-full bg-gray-100">
+    <aside class="lg:w-3/12 my-8 w-full flex justify-center items-center">
       <form
         class="bg-white p-5 w-4/5 rounded shadow-md"
         @submit.prevent="login"
@@ -66,7 +79,7 @@ const login = () => {
       </form>
     </aside>
     <img
-      class="object-cover w-3/4"
+      class="object-cover h-full lg:w-3/4"
       src="https://source.unsplash.com/1920x1080/?dog"
       alt="dogologin"
     >
