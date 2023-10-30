@@ -34,7 +34,26 @@ onMounted(async () => {
 
 <template>
   <section class="flex flex-col-reverse md:flex-row">
-    <aside class="bg-neutral-300 overflow-y-auto overflow flex flex-col items-center sticky top-0 p-5 h-screen">
+    <svg    
+      class="absolute top-1 left-1 h-14 w-14 text-blue-500"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    ><g
+      id="SVGRepo_bgCarrier"
+      stroke-width="0"
+    /><g
+      id="SVGRepo_tracerCarrier"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    /><g id="SVGRepo_iconCarrier"> <path
+      d="M4 6H20M4 12H20M4 18H20"
+      stroke="#000000"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    /> </g></svg>
+    <aside class="bg-neutral-300 hidden overflow-y-auto overflow lg:flex flex-col items-center sticky top-0 p-5 h-screen">
       <h2 class="text-center font-mono text-2xl">
         Breeds list
       </h2>
@@ -49,7 +68,7 @@ onMounted(async () => {
         </li>
       </ul>
     </aside>
-    <section class="flex w-full my-10 items-center flex-col">
+    <section class="flex w-full my-24 lg:my-10 items-center flex-col">
       <DogForm @fetch-dogs="fetchDogs" />
       <p
         v-if="!fetchState.firstSearch && dogs.length === 0"

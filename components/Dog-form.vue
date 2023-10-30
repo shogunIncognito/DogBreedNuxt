@@ -4,7 +4,7 @@ const breed = ref('')
 </script>
 
 <template>
-  <section class="bg-slate-50 p-3 shadow rounded lg:w-1/2">
+  <section class="bg-slate-50 p-3 shadow rounded w-5/6 lg:w-1/2">
     <form
       class="flex"
       @submit.prevent="$emit('fetchDogs', breed)"
